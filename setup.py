@@ -25,7 +25,7 @@ CLASSIFIERS = [
 setup(
     name='references',
     version=__version__,
-    description='references app,
+    description='references app',
     author='Kim Thoenen',
     author_email='kim@smuzey.ch',
     url='https://github.com/Chive/references',
