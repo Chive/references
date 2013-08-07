@@ -1,0 +1,27 @@
+{% load i18n sekizai_tags thumbnail %}
+
+{% if instance.carousel_title %}<h3 class="brand-carousel-title"><span>{{ instance.carousel_title }}</span></h3>{% endif %}
+<div id="brand-carousel-{{ instance.pk }}" class="brand-carousel">
+	<div class="wrapper">
+        <p class="trigger-left"><a href="#">{% trans 'move left' %}</a></p>
+        <ul class="viewport">
+            {% for brand in brands %}
+			    <li class="item">
+                    <img src="{% thumbnail brand.donor_detail_img 205x80 %}" alt="{{ brand.brand_name }}" /> <span>{{ brand.brand_name }}</span>
+                </li>
+            {% endfor %}
+		</ul>
+        <p class="trigger-right"><a href="#">{% trans 'move right' %}</a></p>
+	</div>
+</div>
+
+{% addtoblock "js" %}<script src="{{ STATIC_URL }}js/plugins/cl.carousel.js2"></script>{% endaddtoblock "js" %}
+{% addtoblock "js" %}
+<script>
+jQuery(document).ready(function ($) {
+	new Cl.Carousel('#brand-carousel-{{ instance.pk }}', {
+		'timeout': {{ instance.carousel_timeout|default:4 }}000
+	});
+});
+</script>
+{% endaddtoblock "js" %}

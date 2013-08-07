@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+{% load placeholder_tags %}
+    {% block content %}
+        <img style='width:150px' src='{{ reference.donor_detail_img.url }}' />
+        <img style='width:150px' src='{{ reference.donor_logo.url }}' />
+
+        <h1>{{ reference.donor_name }}</h1>
+        <span>{{ reference.donor_title }}</span>
+        <span>{% render_placeholder reference.reference_text "640" %}</span>
+    {% endblock %}
