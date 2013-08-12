@@ -1,8 +1,8 @@
 from django.contrib import admin
-from cms.admin.placeholderadmin import PlaceholderAdmin
+from hvad.admin import TranslatableAdmin
 from references.models import Reference
 
-class ReferenceAdmin(admin.ModelAdmin):
+class ReferenceAdmin(TranslatableAdmin):
     fieldsets = [
         ('donor', {'fields': ['donor_name','donor_title','donor_logo','donor_detail_img']}),
         ('date', {'fields': ['pub_date']})

@@ -17,9 +17,3 @@ class ReferencePlugin(CMSPluginBase):
         return context
 
 plugin_pool.register_plugin(ReferencePlugin)
-
-######################################################
-######################################################
-######################################################
-
-
