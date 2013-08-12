@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+{% block content %}
+    {% if reference_list %}
+        <ul>
+        {% for reference in reference_list %}
+            <li style="display:block">
+                <h2>{{ reference.donor_name }}</h2>
+                <a href="/references/{{ reference.id }}/">
+                    <img style='width:150px' src='{{ reference.donor_logo.url }}' />
+                </a>
+            </li>
+        {% endfor %}
+        </ul>
+    {% else %}
+        <p>No references are available.</p>
+    {% endif %}
+{% endblock %}
